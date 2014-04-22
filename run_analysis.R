@@ -3,25 +3,33 @@
 #Github: lcindy
 ##########################################################################
 #Read feature
-features<-read.table("./project/UCI HAR Dataset/features.txt")
+#features<-read.table("./project/UCI HAR Dataset/features.txt")
+features<-read.table("./UCI HAR Dataset/features.txt")
 features<-rbind(data.frame(V1="-1",V2="subject"),data.frame(V1="0",V2="activity"),features)
 
 #Read Activity
-activity<-read.table("./project/UCI HAR Dataset/activity_labels.txt")
+#activity<-read.table("./project/UCI HAR Dataset/activity_labels.txt")
+activity<-read.table("./UCI HAR Dataset/activity_labels.txt")
 #Read train set
-filepath_X<-"./project/UCI HAR Dataset/train/X_train.txt"
+filepath_X<-"./UCI HAR Dataset/train/X_train.txt"
+#filepath_X<-"./project/UCI HAR Dataset/train/X_train.txt"
 data_X<-read.table(filepath_X)
-filepath_subject<-"./project/UCI HAR Dataset/train/subject_train.txt"
+filepath_subject<-"./UCI HAR Dataset/train/subject_train.txt"
+#filepath_subject<-"./project/UCI HAR Dataset/train/subject_train.txt"
 data_sub<-read.table(filepath_subject)
-filepath_y<-"./project/UCI HAR Dataset/train/y_train.txt"
+filepath_y<-"./UCI HAR Dataset/train/y_train.txt"
+#filepath_y<-"./project/UCI HAR Dataset/train/y_train.txt"
 data_y<-read.table(filepath_y)
 data_train<-cbind(data_sub,data_y,data_X)
 #Read test set
-filepath_X<-"./project/UCI HAR Dataset/test/X_test.txt"
+#filepath_X<-"./project/UCI HAR Dataset/test/X_test.txt"
+filepath_X<-"./UCI HAR Dataset/test/X_test.txt"
 data_X<-read.table(filepath_X)
-filepath_subject<-"./project/UCI HAR Dataset/test/subject_test.txt"
+filepath_subject<-"./UCI HAR Dataset/test/subject_test.txt"
+#filepath_subject<-"./project/UCI HAR Dataset/test/subject_test.txt"
 data_sub<-read.table(filepath_subject)
-filepath_y<-"./project/UCI HAR Dataset/test/y_test.txt"
+filepath_y<-"./UCI HAR Dataset/test/y_test.txt"
+#filepath_y<-"./project/UCI HAR Dataset/test/y_test.txt"
 data_y<-read.table(filepath_y)
 data_test<-cbind(data_sub,data_y,data_X)
 #1.Merges the training and the test sets to create one data set.
@@ -66,4 +74,5 @@ for ( i in 2:30){
   FinalResults<-rbind(FinalResults,RunAnalysis(filtereddata_new,i))
 }
 FinalResults
-write.table(FinalResults, file="./project/UCI HAR Dataset/FinalResults.txt") 
+#write.table(FinalResults, file="./project/UCI HAR Dataset/FinalResults.txt") 
+write.table(FinalResults, file="./UCI HAR Dataset/FinalResults.txt") 
